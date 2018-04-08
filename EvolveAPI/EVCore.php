@@ -10,7 +10,7 @@
  * @package Evolve
  */
 
-namespace Evolve;
+namespace EvolveAPI;
 
 
 use Exception;
@@ -64,7 +64,7 @@ class EVCore
         // Add our form data if we have any to send.
         if ($method != 'GET' && !empty($params))
         {
-            $data['json'] = $params
+            $data['json'] = $params;
         }
         try
         {

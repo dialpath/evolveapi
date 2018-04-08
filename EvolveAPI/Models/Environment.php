@@ -1,8 +1,8 @@
 <?php
 
-namespace Evolve\Models;
+namespace EvolveAPI\Models;
 
-use Evolve\EVCore;
+use EvolveAPI\EVCore;
 
 /**
  * Class Environment
@@ -13,7 +13,7 @@ use Evolve\EVCore;
  * enviornments. Each PBX in an enviornment is completely segregated.
  *
  * @author Chris Horne <chris@dialpath.com>
- * @package Evolve\Models
+ * @package EvolveAPI\Models
  */
 class Environment extends EVCore
 {
@@ -21,7 +21,7 @@ class Environment extends EVCore
      * Get a list of available enviornments. If the 'private'
      * parameter is true, this denotes a custom enviornment.
      * @return mixed
-     * @throws \Evolve\EVException
+     * @throws \EvolveAPI\EVException
      */
     public function all()
     {
@@ -32,9 +32,9 @@ class Environment extends EVCore
      * Get an enviornment details
      * @param string $uuid
      * @return mixed
-     * @throws \Evolve\EVException
+     * @throws \EvolveAPI\EVException
      */
-    public function find(string $uuid)
+    public function find($uuid)
     {
         return $this->send("enviornments/{$uuid}");
     }

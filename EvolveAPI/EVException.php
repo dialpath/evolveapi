@@ -1,5 +1,5 @@
 <?php
-namespace Evolve;
+namespace EvolveAPI;
 use Exception;
 
 /**

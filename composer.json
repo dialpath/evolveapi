@@ -1,5 +1,5 @@
 {
-  "name": "dialpath/evolve",
+  "name": "dialpath/evolveapi",
   "description": "A PHP-SDK for Dialpath Evolve API",
   "keywords": [
     "voip",
@@ -19,7 +19,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Evolve\\": "Evolve/"
+      "EvolveAPI\\": "EvolveAPI/"
     }
   },
   "version": "1.0.0",
