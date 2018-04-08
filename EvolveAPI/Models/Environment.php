@@ -12,6 +12,9 @@ use EvolveAPI\EVCore;
  * individually by customers, or they are multi-tenant Dialpath owned
  * enviornments. Each PBX in an enviornment is completely segregated.
  *
+ * There are no create/update/delete methods on this, as enviornments
+ * are managed by DialPath Support.
+ *
  * @author Chris Horne <chris@dialpath.com>
  * @package EvolveAPI\Models
  */
@@ -25,7 +28,7 @@ class Environment extends EVCore
      */
     public function all()
     {
-        return $this->send("enviornments");
+        return $this->send("environnments");
     }
 
     /**
@@ -34,8 +37,8 @@ class Environment extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function find($uuid)
+    public function find(string $uuid)
     {
-        return $this->send("enviornments/{$uuid}");
+        return $this->send("environments/{$uuid}");
     }
 }
