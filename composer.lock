@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fef249d93ff1859effbf06f5178eb1e3",
+    "content-hash": "4413381e68781ff9a7ba30b1008e0433",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -188,6 +188,46 @@
             "time": "2018-03-29T00:18:34+00:00"
         },
         {
+            "name": "phplucidframe/console-table",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phplucidframe/console-table.git",
+                "reference": "1d8d989e84ce99dc146619bce233a85d46e326ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phplucidframe/console-table/zipball/1d8d989e84ce99dc146619bce233a85d46e326ab",
+                "reference": "1d8d989e84ce99dc146619bce233a85d46e326ab",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LucidFrame\\": "src/",
+                    "LucidFrameTest\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sithu K.",
+                    "email": "cithukyaw@gmail.com"
+                }
+            ],
+            "description": "Console Table",
+            "time": "2017-12-24T12:17:32+00:00"
+        },
+        {
             "name": "psr/http-message",
             "version": "dev-master",
             "source": {
@@ -241,7 +281,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "phplucidframe/console-table": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

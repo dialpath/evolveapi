@@ -22,19 +22,20 @@ class EVCore
      * Our Evolve API Key
      * @var string
      */
-    private $apiKey = "<< YOUR EVOLVE API KEY >> ";
+    public $apiKey = "<< YOUR EVOLVE API KEY >> ";
 
     /**
      * The Evolve base endpoint. This hopefully won't ever change.
      * @var string
      */
-    private $baseEndpoint = "http://localhost:8000/api/v1/";
+    private $baseEndpoint = "http://127.0.0.1:8000/api/v1/";
     /**
      * Our Guzzle Client
      * @var
      */
     protected $client;
 
+    protected $environment;
 
     /**
      * EVCore constructor.
@@ -57,6 +58,8 @@ class EVCore
     public function send($endpoint, $method = "GET", $params = [])
     {
         $method = strtolower($method);
+        if ($this->environment) $this->baseEndpoint .= "environments/{$this->environment}/";
+        $this->environment = null; // don't repeat the previous line.
         $data = [];
         $data['headers'] = [
             'X-Auth-Token' => $this->apiKey
@@ -72,7 +75,8 @@ class EVCore
             $result = json_decode($result->getBody()->getContents());
             if ($result->success != true) // Error from Evolve API (remote message)
             {
-                throw new EVException($result->message);
+                print("\n\n** ERROR ** " . $result->reason);
+                return false;
             }
             return $result->payload;
         } catch (Exception $e)
