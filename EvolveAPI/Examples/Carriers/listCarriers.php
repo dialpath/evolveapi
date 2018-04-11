@@ -17,7 +17,7 @@ if (!isset($argv[1]))
     die("\n\nUsage: php listCarriers.php {environment uuid}\n\n");
 }
 $api = new Carrier($argv[1]);
-$api->apiKey = $token;  // Manually set token for testing.
+Carrier::$apiKey = $token;  // Manually set token for testing.
 
 // Get a list of all carriers for an enviornment and print.
 $table->setHeaders(['ID', 'Name', 'Peer', 'IP']);

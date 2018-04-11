@@ -11,7 +11,7 @@ include("../config.php");
 
 
 $api = new Environment();
-$api->apiKey = $token;  // Manually set token for testing.
+Environment::$apiKey = $token;  // Manually set token for testing.
 $table = new ConsoleTable();
 
 if (!isset($argv[1]))

@@ -22,7 +22,7 @@ class EVCore
      * Our Evolve API Key
      * @var string
      */
-    public $apiKey = "<< YOUR EVOLVE API KEY >> ";
+    static public $apiKey = "<< YOUR EVOLVE API KEY >> ";
 
     /**
      * The Evolve base endpoint. This hopefully won't ever change.
@@ -62,7 +62,7 @@ class EVCore
         $this->environment = null; // don't repeat the previous line.
         $data = [];
         $data['headers'] = [
-            'X-Auth-Token' => $this->apiKey
+            'X-Auth-Token' => static::$apiKey
         ];
         // Add our form data if we have any to send.
         if ($method != 'GET' && !empty($params))

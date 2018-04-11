@@ -17,7 +17,7 @@ if (!isset($argv[1]))
     die("\n\nUsage: php listPbxes.php {environment uuid}\n\n");
 }
 $api = new PBX($argv[1]);
-$api->apiKey = $token;  // Manually set token for testing.
+PBX::$apiKey = $token;  // Manually set token for testing.
 
 
 // Get a list of all carriers for an enviornment and print.
