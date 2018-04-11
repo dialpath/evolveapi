@@ -32,15 +32,26 @@ class Environment extends EVCore
     }
 
     /**
-     * Get an enviornment details. This will list all servers
-     * in a private enviornment or sandbox. For more information
-     * on private enviornments contact sales@dialpath.com
+     * Get Enviornment by UUID
      * @param string $uuid
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
     public function find(string $uuid)
     {
+        return $this->send("environments/{$uuid}")->env;
+    }
+
+    /**
+     * This will list all servers in a private enviornment or sandbox.
+     * For more information on private enviornments contact sales@dialpath.com
+     * @param string $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function servers(string $uuid)
+    {
         return $this->send("environments/{$uuid}")->servers;
+
     }
 }

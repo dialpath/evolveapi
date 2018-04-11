@@ -21,7 +21,7 @@ if (!isset($argv[1]))
 
 // Get a list of all enviornments and print.
 $table->setHeaders(['UUID', 'Hostname', 'Role', 'Public IP', 'Private IP', 'Description']);
-$servers = $api->find($argv[1]);
+$servers = $api->servers($argv[1]);
 foreach ($servers as $server)
 {
     $table->addRow([
