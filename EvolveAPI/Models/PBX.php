@@ -45,6 +45,17 @@ class PBX extends EVCore
     }
 
     /**
+     * Get a single PBX from its UUID
+     * @param $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function find($uuid)
+    {
+        return $this->send("pbx/{$uuid}")->pbx;
+    }
+
+    /**
      * Build a new PBX
      * @param $name - The name of the company (i.e. ACME Business)
      * @param null $timezone - Timezone (GMT (-1 to +14)) or leave blank for Eastern (-5)
