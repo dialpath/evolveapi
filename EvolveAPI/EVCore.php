@@ -28,7 +28,7 @@ class EVCore
      * The Evolve base endpoint. This hopefully won't ever change.
      * @var string
      */
-    private $baseEndpoint = "http://127.0.0.1:8000/api/v1/";
+    private $baseEndpoint = "http://localhost/api/v1/";
     /**
      * Our Guzzle Client
      * @var
