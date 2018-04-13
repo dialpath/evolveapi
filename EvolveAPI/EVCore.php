@@ -80,7 +80,7 @@ class EVCore
             return $result->payload;
         } catch (Exception $e)
         {
-            throw new EVException("Unable to communicate with the Evolve API: " . $e->getMessage());
+            throw new EVException($e->getMessage());
         }
     }
 
