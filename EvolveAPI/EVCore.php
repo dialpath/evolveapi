@@ -75,8 +75,7 @@ class EVCore
             $result = json_decode($result->getBody()->getContents());
             if ($result->success != true) // Error from Evolve API (remote message)
             {
-                print("\n\n** ERROR ** " . $result->reason);
-                return false;
+                throw new EVException($result->reason);
             }
             return $result->payload;
         } catch (Exception $e)
