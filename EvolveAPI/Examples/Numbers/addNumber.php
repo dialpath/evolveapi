@@ -1,4 +1,5 @@
 <?php
+
 use EvolveAPI\Models\Number;
 use EvolveAPI\Models\PBX;
 use LucidFrame\Console\ConsoleTable;
@@ -11,11 +12,19 @@ $table = new ConsoleTable();
 
 if (!isset($argv[1]))
 {
-    die("\n\nUsage: php listNumbers.php {environment uuid}\n\n");
+    die("\n\nUsage: php addNumber.php {environment uuid}\n\n");
 }
 $api = new Number($argv[1]);
 PBX::$apiKey = $token;  // Manually set token for testing.
 $pbx = readline("Enter PBX UUID: ");
+$number = readline("Enter 10 Digit Number: ");
+$description = readline("Enter a Description (eg. Acme Main Number): ");
+// Add the number.
+
+$api->create($pbx, [
+    'number'      => $number,
+    'description' => $description,
+]);
 
 
 // Get a list of all carriers for an environment and print.
@@ -36,4 +45,3 @@ if (count($numbers) > 0)
     $table->display();
 }
 else print("\n\nNo Number for PBX Found\n\n");
-

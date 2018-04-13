@@ -1,7 +1,5 @@
 <?php
-/**
- * Get a list of pbxes in an enviornments.
- */
+
 
 use EvolveAPI\Models\PBX;
 use LucidFrame\Console\ConsoleTable;

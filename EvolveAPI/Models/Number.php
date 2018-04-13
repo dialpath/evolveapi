@@ -37,4 +37,19 @@ class Number extends EVCore
         return $this->send("pbx/{$uuid}/numbers")->numbers;
     }
 
+    /**
+     * @param $uuid
+     * @param array $params
+     *  number - The 10 Digit number to add
+     *  description - The description of the TN
+     *  recording - bool - Enable recording for this number?
+     *  email - Enter an email address if you want email recordings emailed.
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function create($uuid, array $params)
+    {
+        return $this->send("pbx/{$uuid}/numbers", 'POST', $params);
+    }
+
 }
