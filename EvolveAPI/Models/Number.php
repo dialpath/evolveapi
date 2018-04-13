@@ -28,17 +28,17 @@ class Number extends EVCore
 
     /**
      * Get a list of assigned telephone numbers.
-     * @param string $uuid
+     * @param string $pbx The UUID of the PBX
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function all(string $uuid)
+    public function all(string $pbx)
     {
-        return $this->send("pbx/{$uuid}/numbers")->numbers;
+        return $this->send("pbx/{$pbx}/numbers")->numbers;
     }
 
     /**
-     * @param $uuid
+     * @param $pbx The UUID of the PBX
      * @param array $params
      *  number - The 10 Digit number to add
      *  description - The description of the TN
@@ -47,9 +47,47 @@ class Number extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function create($uuid, array $params)
+    public function create($pbx, array $params)
     {
-        return $this->send("pbx/{$uuid}/numbers", 'POST', $params);
+        return $this->send("pbx/{$pbx}/numbers", 'POST', $params);
+    }
+
+    /**
+     * Find and return an instance of a Number
+     * @param $pbx
+     * @param $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function find($pbx, $uuid)
+    {
+        return $this->send("pbx/{$pbx}/numbers/{$uuid}")->number;
+    }
+
+    /**
+     * Update a DID with parameters used with the create method
+     * @param $pbx
+     * @param $uuid
+     * @param array $params
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function update($pbx, $uuid, array $params)
+    {
+        return $this->send("pbx/{$pbx}/numbers/$uuid", 'PUT', $params);
+    }
+
+
+    /**
+     * Remove a number and its dial paths
+     * @param $pbx
+     * @param $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function delete($pbx, $uuid)
+    {
+        return $this->send("pbx/{$pbx}/numbers/$uuid", 'DELETE');
     }
 
 }
