@@ -87,4 +87,70 @@ class Extension extends EVCore
     {
         return $this->send("pbx/{$pbx}/extensions/{$uuid}", 'DELETE');
     }
+
+    /**
+     * Enable Voicemail for an Extension
+     * @param string $pbx
+     * @param $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function enableVoicemail(string $pbx, $uuid)
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}/voicemail", 'POST');
+    }
+
+    /**
+     * Update voicemail configuration
+     * @param string $pbx
+     * @param $uuid
+     * @param array $params
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function updateVoicemail(string $pbx, $uuid, array $params)
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}/voicemail", 'PUT', $params);
+    }
+
+    /**
+     * Remove a voicemail box and its messages.
+     * @param string $pbx
+     * @param $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function removeVoicemail(string $pbx, $uuid)
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}/voicemail", 'DELETE');
+    }
+
+
+    /**
+     * Enable Findme/Follow me for an extension.
+     * @param string $pbx
+     * @param $uuid
+     * @param array $params -- Optional FMFM configuration. If not specified,
+     * existing configuration will be applied.
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function setFollowMe(string $pbx, $uuid, array $params = [])
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}/follow", 'POST', $params);
+    }
+
+    /**
+     * Disable follow-me for an extension. This will not remove the configuration
+     * it will just disable.
+     * @param string $pbx
+     * @param $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function disableFollowMe(string $pbx, $uuid)
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}/follow", 'DELETE');
+    }
+
 }
