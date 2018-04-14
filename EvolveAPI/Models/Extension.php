@@ -52,6 +52,19 @@ class Extension extends EVCore
     }
 
     /**
+     * Update an Extension
+     * @param string $pbx
+     * @param $uuid
+     * @param array $params
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function update(string $pbx, $uuid, array $params)
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}", "PUT", $params);
+    }
+
+    /**
      * Get a single Extension and its login information
      * @param string $pbx
      * @param $uuid
