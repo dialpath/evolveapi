@@ -90,6 +90,22 @@ class PBX extends EVCore
         return $this->send("pbx/{$uuid}", 'PUT', $fields)->pbx;
     }
 
+    /**
+     * Get a list of all available dial paths for a PBX.
+     * This will include extensions, bridges, internal PBX features,
+     * and more. They will be key'ed by their UUID and the value is their
+     * human readable description. You can use this method to populate
+     * select boxes or other selectable items for building your
+     * dial paths.
+     * @param $pbx
+     * @return object
+     * @throws \EvolveAPI\EVException
+     */
+    public function availablePaths($pbx)
+    {
+        return $this->send("pbx/{$pbx}/paths")->paths;
+    }
+
 
 
 }
