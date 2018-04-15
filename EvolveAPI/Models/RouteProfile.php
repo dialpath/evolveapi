@@ -59,7 +59,10 @@ class RouteProfile extends EVCore
      */
     public function create($name, $description)
     {
-        return $this->send("profiles", 'POST', compact($name, $description));
+        return $this->send("profiles", 'POST', [
+            'name'        => $name,
+            'description' => $description
+        ]);
     }
 
     /**
@@ -73,7 +76,10 @@ class RouteProfile extends EVCore
      */
     public function update($uuid, $name, $description)
     {
-        return $this->send("profiles/{$uuid}", 'PUT', compact($name, $description));
+        return $this->send("profiles/{$uuid}", 'PUT', [
+            'name'        => $name,
+            'description' => $description
+        ]);
 
     }
 
