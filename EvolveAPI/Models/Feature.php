@@ -53,14 +53,16 @@ class Feature extends EVCore
      * @param string $pbx UUID of the PBX
      * @param string $code Feature code including * key. (ie *97)
      * @param string $description Description of what this code does.
+     * @param array $paths
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function create(string $pbx, string $code, string $description)
+    public function create(string $pbx, string $code, string $description, $paths = [])
     {
         return $this->send("pbx/{$pbx}/codes", 'POST', [
             'code'        => $code,
-            'description' => $description
+            'description' => $description,
+            'paths'       => $paths
         ]);
 
     }
@@ -74,11 +76,12 @@ class Feature extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function update(string $pbx, string $uuid, string $code, string $description)
+    public function update(string $pbx, string $uuid, string $code, string $description, $paths = [])
     {
         return $this->send("pbx/{$pbx}/codes/{$uuid}", 'PUT', [
             'code'        => $code,
-            'description' => $description
+            'description' => $description,
+            'paths'       => $paths
         ]);
     }
 
