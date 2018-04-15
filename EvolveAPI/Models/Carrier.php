@@ -5,7 +5,7 @@ namespace EvolveAPI\Models;
 use EvolveAPI\EVCore;
 
 /**
- * Class Carrier
+ * Class Carrier - PRIVATE ENV ONLY
  *
  * For private enviornments, this class will allow you to set
  * your carrier connections and modify them at any time. For
@@ -35,6 +35,18 @@ class Carrier extends EVCore
     }
 
     /**
+     * Get carrier object and return information pertaining to that carrier.
+     * @param $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function find($uuid)
+    {
+        return $this->send("carriers/{$uuid}")->carrier;
+    }
+
+
+    /**
      * Create a new carrier to pass calls to and from.
      * @param array $params Array keys and values below.
      *  name : string : The name of the carrier. i.e. Vitliety, Twilio, etc.
@@ -47,6 +59,30 @@ class Carrier extends EVCore
     public function create(array $params)
     {
         return $this->send("carriers", "POST", $params);
+    }
+
+    /**
+     * Update a carrier configuration using the same fields as above.
+     * @param $uuid
+     * @param array $params
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function update($uuid, array $params)
+    {
+        return $this->send("carriers/{$uuid}", 'PUT', $params);
+    }
+
+    /**
+     * Remove a carrier and its routing profiles and any associated
+     * outbound regex.
+     * @param $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function delete($uuid)
+    {
+       return $this->send("carriers/{$uuid}", 'DELETE');
     }
 
 }
