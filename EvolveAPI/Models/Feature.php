@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: chris
- * Date: 4/15/18
- * Time: 3:47 PM
- */
-
 namespace EvolveAPI\Models;
-
 
 use EvolveAPI\EVCore;
 
@@ -73,6 +65,7 @@ class Feature extends EVCore
      * @param string $uuid
      * @param string $code
      * @param string $description
+     * @param array $paths
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
