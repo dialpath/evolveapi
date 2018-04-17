@@ -79,7 +79,7 @@ class Sound extends EVCore
      */
     public function update(string $pbx, string $uuid, string $name, string $description, $moh = false, $data)
     {
-        return $this->send("pbx/{$pbx}/sounds/{$uuid}", 'POST', [
+        return $this->send("pbx/{$pbx}/sounds/{$uuid}", 'PUT', [
             'name'        => $name,
             'description' => $description,
             'data'        => $data,
