@@ -51,15 +51,17 @@ class Sound extends EVCore
      * @param string $description Description of the sound file
      * @param bool $moh Set to true if you want this media file to be music on hold for the PBX
      * @param string $data - Base64 Encoded WAV or MP3 File
+     * @param $ext The extension of the file being uploaded
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function create(string $pbx, string $name, string $description, $moh = false, $data)
+    public function create(string $pbx, string $name, string $description, $moh = false, $data, $ext)
     {
         return $this->send("pbx/{$pbx}/sounds", 'POST', [
             'name'        => $name,
             'description' => $description,
             'data'        => $data,
+            'ext'         => $ext,
             'isMoh'       => $moh
 
         ]);
@@ -74,15 +76,17 @@ class Sound extends EVCore
      * @param string $description Description of the sound file
      * @param bool $moh Set to true to make this the music on hold for the pbx.
      * @param string $data - Base64 Encoded WAV or MP3 File
+     * @param $ext - The extension of the file being uploaded (for conversion)
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function update(string $pbx, string $uuid, string $name, string $description, $moh = false, $data)
+    public function update(string $pbx, string $uuid, string $name, string $description, $moh = false, $data, $ext)
     {
         return $this->send("pbx/{$pbx}/sounds/{$uuid}", 'PUT', [
             'name'        => $name,
             'description' => $description,
             'data'        => $data,
+            'ext'         => $ext,
             'isMoh'       => $moh
         ]);
 
