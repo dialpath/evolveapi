@@ -29,7 +29,7 @@ class Condition extends EVCore
      * @return Conditions
      * @throws \EvolveAPI\EVException
      */
-    public function index(string $pbx)
+    public function all(string $pbx)
     {
         return $this->send("pbx/{$pbx}/conditions")->conditions;
     }
@@ -78,7 +78,7 @@ class Condition extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function destroy(string $pbx, $uuid)
+    public function delete(string $pbx, $uuid)
     {
         return $this->send("pbx/{$pbx}/conditions/{$uuid}", 'DELETE');
     }
