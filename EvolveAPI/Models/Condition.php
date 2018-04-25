@@ -53,7 +53,7 @@ class Condition extends EVCore
      * @return string
      * @throws \EvolveAPI\EVException
      */
-    public function create(string $pbx, array $params = []) : string
+    public function create(string $pbx, array $params = []): string
     {
         return $this->send("pbx/{$pbx}/conditions", 'POST', $params)->uuid;
     }
@@ -66,7 +66,7 @@ class Condition extends EVCore
      * @return string
      * @throws \EvolveAPI\EVException
      */
-    public function update(string $pbx, $uuid, array $params = []) : string
+    public function update(string $pbx, $uuid, array $params = []): string
     {
         return $this->send("pbx/{$pbx}/conditions/{$uuid}", 'PUT', $params)->uuid;
     }
@@ -83,4 +83,37 @@ class Condition extends EVCore
         return $this->send("pbx/{$pbx}/conditions/{$uuid}", 'DELETE');
     }
 
+    /**
+     * Add or update a day to a condition. This can be used with WEEKTIME or CALENDAR only.
+     * @param string $pbx
+     * @param $uuid
+     * @param string $day 0 (Sunday) - 6 (Saturday) or a date in YYYY/MM/DD format.
+     * @param string $start 24 hour time to start condition
+     * @param string $end 24 hour time to end condition
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function addDay(string $pbx, $uuid, $day = '0', $start = '00:00', $end = '23:59')
+    {
+        return $this->send("pbx/{$pbx}/conditions/$uuid/addDay", 'POST', [
+            'day'   => $day,
+            'start' => $start,
+            'end'   => $end
+        ]);
+    }
+
+    /**
+     * Remove a day from a WEEKTIME or CALENDAR condition.
+     * @param string $pbx
+     * @param $uuid
+     * @param string $day
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function removeDay(string $pbx, $uuid, $day = '0')
+    {
+        return $this->send("pbx/{$pbx}/conditions/$uuid/removeDay", 'DELETE', [
+            'day' => $day
+        ]);
+    }
 }
