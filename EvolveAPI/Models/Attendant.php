@@ -53,7 +53,7 @@ class Attendant extends EVCore
      * @param array $params
      *   name : string : The name of the auto attendant
      *   welcome : string : The UUID of the sound file to play when the attendant starts
-     *   timeout : int : The number of seconds after the sound file plays to wait for a response
+     *   att_timeout : int : The number of seconds after the sound file plays to wait for a response
      *   digit_timeout : int : The number of seconds to allow between digits. (default 2)
      *   loop_timeout : bool : If someone exceeds the time limit, start over? false = hangup.
      *   loop_wrongkey : bool : If someone presses an invalid entry, let them start over? false = hangup
@@ -77,7 +77,7 @@ class Attendant extends EVCore
      * @return string
      * @throws \EvolveAPI\EVException
      */
-    public function store(string $pbx, array $params): string
+    public function create(string $pbx, array $params): string
     {
         return $this->send("pbx/{$pbx}/attendants", 'POST', $params)->uuid;
     }
