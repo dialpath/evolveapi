@@ -47,7 +47,7 @@ class Group extends EVCore
      * @param array $settings
      *  name : string : The name of the ring group
      *  extension : int : The extension number to dial this group directly
-     *  extensions : array : A list of extension UUIDs to include in this group.
+     *  paths : array : A list of extension UUIDs to include in this group.
      *  type : string : RINGALL, CYCLE, SEQUENCE (default RINGALL)
      *  rg_timeout : int : Time before timeout (default 25 seconds/5 rings)
      *  skip_busy : bool : Skip extensions if they are in use (default true)
