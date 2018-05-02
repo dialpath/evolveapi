@@ -153,4 +153,16 @@ class Extension extends EVCore
         return $this->send("pbx/{$pbx}/extensions/{$uuid}/follow", 'DELETE');
     }
 
+    /**
+     * Change/Reset Password for an Extension
+     * @param string $pbx
+     * @param $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function reset(string $pbx, $uuid)
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}/reset", 'POST')->secret;
+    }
+
 }
