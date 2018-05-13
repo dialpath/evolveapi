@@ -4,9 +4,12 @@ namespace EvolveAPI\Models;
 
 use EvolveAPI\EVCore;
 
+/**
+ * Class Group
+ * @package EvolveAPI\Models
+ */
 class Group extends EVCore
 {
-
     /**
      * Ring Group constructor.
      * @param string $environment
@@ -27,7 +30,6 @@ class Group extends EVCore
     {
         return $this->send("pbx/{$pbx}/groups")->groups;
     }
-
 
     /**
      * Get a Ring Group

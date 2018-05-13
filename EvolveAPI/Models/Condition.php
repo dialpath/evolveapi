@@ -1,20 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: chris
- * Date: 4/20/18
- * Time: 2:47 PM
- */
-
 namespace EvolveAPI\Models;
-
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Condition
+ * @package EvolveAPI\Models
+ */
 class Condition extends EVCore
 {
     /**
-     * Carrier constructor.
+     * Condition constructor.
      * @param string $environment
      */
     public function __construct(string $environment)

@@ -1,12 +1,13 @@
 <?php
-
 namespace EvolveAPI\Models;
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Bridge
+ * @package EvolveAPI\Models
+ */
 class Bridge extends EVCore
 {
-
     /**
      * Conference Bridge constructor.
      * @param string $environment
@@ -27,7 +28,6 @@ class Bridge extends EVCore
     {
         return $this->send("pbx/{$pbx}/bridges")->bridges;
     }
-
 
     /**
      * Get a Bridge

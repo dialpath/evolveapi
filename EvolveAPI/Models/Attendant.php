@@ -1,21 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: chris
- * Date: 4/25/18
- * Time: 6:00 PM
- */
-
 namespace EvolveAPI\Models;
-
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Attendant
+ * @package EvolveAPI\Models
+ */
 class Attendant extends EVCore
 {
 
     /**
-     * Carrier constructor.
+     * Attendant constructor.
      * @param string $environment
      */
     public function __construct(string $environment)

@@ -4,6 +4,10 @@ namespace EvolveAPI\Models;
 
 use EvolveAPI\EVCore;
 
+/**
+ * Class Flow
+ * @package EvolveAPI\Models
+ */
 class Flow extends EVCore
 {
 
@@ -27,7 +31,6 @@ class Flow extends EVCore
     {
         return $this->send("pbx/{$pbx}/flows")->flows;
     }
-
 
     /**
      * Get a Call Flow

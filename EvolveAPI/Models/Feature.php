@@ -1,11 +1,15 @@
 <?php
+
 namespace EvolveAPI\Models;
 
 use EvolveAPI\EVCore;
 
+/**
+ * Class Feature
+ * @package EvolveAPI\Models
+ */
 class Feature extends EVCore
 {
-
     /**
      * Feature Code constructor.
      * @param string $environment
@@ -26,7 +30,6 @@ class Feature extends EVCore
     {
         return $this->send("pbx/{$pbx}/codes")->codes;
     }
-
 
     /**
      * Get a Feature Code

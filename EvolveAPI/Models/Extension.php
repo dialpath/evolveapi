@@ -1,7 +1,5 @@
 <?php
-
 namespace EvolveAPI\Models;
-
 use EvolveAPI\EVCore;
 
 /**
@@ -15,7 +13,7 @@ use EvolveAPI\EVCore;
 class Extension extends EVCore
 {
     /**
-     * Number constructor.
+     * Extension constructor.
      * @param string $environment
      */
     public function __construct(string $environment)

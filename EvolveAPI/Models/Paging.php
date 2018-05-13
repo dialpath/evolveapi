@@ -1,14 +1,17 @@
 <?php
 
 namespace EvolveAPI\Models;
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Paging
+ * @package EvolveAPI\Models
+ */
 class Paging extends EVCore
 {
 
     /**
-     * Conference Bridge constructor.
+     * Paging/Intercom constructor.
      * @param string $environment
      */
     public function __construct(string $environment)

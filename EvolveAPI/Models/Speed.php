@@ -1,9 +1,11 @@
 <?php
-
 namespace EvolveAPI\Models;
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Speed
+ * @package EvolveAPI\Models
+ */
 class Speed extends EVCore
 {
 

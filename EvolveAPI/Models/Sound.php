@@ -1,17 +1,17 @@
 <?php
-
-
 namespace EvolveAPI\Models;
-
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Sound
+ * @package EvolveAPI\Models
+ */
 class Sound extends EVCore
 {
     protected $environment;
 
     /**
-     * Feature Code constructor.
+     * Sound Files constructor.
      * @param string $environment
      */
     public function __construct(string $environment)
@@ -63,7 +63,6 @@ class Sound extends EVCore
             'data'        => $data,
             'ext'         => $ext,
             'isMoh'       => $moh
-
         ]);
 
     }

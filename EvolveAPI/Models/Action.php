@@ -1,9 +1,11 @@
 <?php
-
 namespace EvolveAPI\Models;
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Action
+ * @package EvolveAPI\Models
+ */
 class Action extends EVCore
 {
 
@@ -27,7 +29,6 @@ class Action extends EVCore
     {
         return $this->send("pbx/{$pbx}/actions")->actions;
     }
-
 
     /**
      * Get an action

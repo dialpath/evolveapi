@@ -1,20 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: chris
- * Date: 4/11/18
- * Time: 7:49 PM
- */
 
 namespace EvolveAPI\Models;
 
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Number
+ * @package EvolveAPI\Models
+ */
 class Number extends EVCore
 {
-
-
     /**
      * Number constructor.
      * @param string $environment
