@@ -17,6 +17,7 @@ class Voicemail extends EVCore
     }
 
     /**
+     *
      * Get a list of Voicemails
      * @param string $pbx
      * @param bool $includeExtensions - Include personal voicemails? Or just Generic Voicemail boxes
@@ -48,42 +49,26 @@ class Voicemail extends EVCore
      * a mailbox attached to an extension this will fail, use the Extension model method enableVoicemail
      * @param string $pbx UUID of the PBX
      *
-     * @param string $name - The name of the mailbox (i.e. General Sales)
-     * @param int $mailbox - The mailbox number/extension for this mailbox
-     * @param int $passcode - The 4 digit passcode for the mailbox
-     * @param string $email (optional) - The voicemail to email address to use
+     * @param array $params
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function create(string $pbx, string $name, int $mailbox, int $passcode, string $email)
+    public function create(string $pbx, array $params)
     {
-        return $this->send("pbx/{$pbx}/voicemails", 'POST', [
-            'name'     => $name,
-            'mailbox'  => $mailbox,
-            'passcode' => $passcode,
-            'email'    => $email
-        ]);
+        return $this->send("pbx/{$pbx}/voicemails", 'POST', $params);
     }
 
     /**
      * Update a Voicemail
      * @param string $pbx
      * @param string $uuid
-     * @param string $name
-     * @param int $mailbox
-     * @param int $passcode
-     * @param string $email
+     * @param array $params
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function update(string $pbx, string $uuid, string $name, int $mailbox, int $passcode, string $email)
+    public function update(string $pbx, string $uuid, $params = [])
     {
-        return $this->send("pbx/{$pbx}/voicemails/{$uuid}", 'PUT', [
-            'name'     => $name,
-            'mailbox'  => $mailbox,
-            'passcode' => $passcode,
-            'email'    => $email
-        ]);
+        return $this->send("pbx/{$pbx}/voicemails/{$uuid}", 'PUT', $params);
     }
 
     /**
