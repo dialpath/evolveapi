@@ -43,18 +43,16 @@ class Setting extends EVCore
     }
 
     /**
-     * Change a Setting
+     * Change Setting(s)
      * @param string $pbx
      * @param string $uuid
-     * @param string $newValue
+     * @param array $settings
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function update(string $pbx, string $uuid, string $newValue)
+    public function update(string $pbx, string $uuid, array $settings)
     {
-        return $this->send("pbx/{$pbx}/settings/{$uuid}", 'PUT', [
-            'value'     => $newValue,
-        ]);
+        return $this->send("pbx/{$pbx}/settings/{$uuid}", 'PUT', $settings);
     }
 
 
