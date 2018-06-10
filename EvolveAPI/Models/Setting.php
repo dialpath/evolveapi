@@ -49,7 +49,7 @@ class Setting extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function update(string $pbx,  array $settings)
+    public function update(string $pbx, array $settings)
     {
         return $this->send("pbx/{$pbx}/settings", 'POST', $settings);
     }
