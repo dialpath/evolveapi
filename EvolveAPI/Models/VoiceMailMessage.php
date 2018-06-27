@@ -26,9 +26,8 @@ class VoiceMailMessage extends EVCore
      * @param bool $includeExtensions
      * @return mixed
      */
-    public function all(string $pbx, string $vm, $includeExtensions = false)
+    public function all(string $pbx, string $vm)
     {
-        $withExtensions = $includeExtensions ? ['withExtensions' => true] : [];
-        return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages", 'GET', $withExtensions)->messages;
+        return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages", 'GET')->messages;
     }
 }
