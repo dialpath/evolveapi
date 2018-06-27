@@ -9,6 +9,8 @@
 namespace EvolveAPI\Models;
 
 
+use EvolveAPI\EVCore;
+
 class VoiceMailMessage extends EVCore
 {
     /**
