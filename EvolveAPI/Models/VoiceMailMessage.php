@@ -25,8 +25,9 @@ class VoiceMailMessage extends EVCore
 
     /**
      * @param string $pbx
-     * @param bool $includeExtensions
+     * @param string $vm
      * @return mixed
+     * @throws \EvolveAPI\EVException
      */
     public function all(string $pbx, string $vm)
     {
