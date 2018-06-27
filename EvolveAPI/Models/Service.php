@@ -27,6 +27,6 @@ class Service extends EVCore
      */
     public function all()
     {
-        return $this->send("services");
+        return $this->send("services")->services;
     }
 }
