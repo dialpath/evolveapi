@@ -122,4 +122,29 @@ class Phone extends EVCore
         return $this->send("phones/{$mac}", 'DELETE');
     }
 
+    /**
+     * Get assignable line keys for this phone.
+     * NOTE: Phone must be associated to a PBX before this call will return anything.
+     * @param string $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function getAssignableLineKeys(string $uuid)
+    {
+        return $this->send("phones/{$uuid}/assignable/keys");
+    }
+
+    /**
+     * Get assignable extensions/accounts for this phone.
+     * NOTE: Phone must be associated to a PBX before this call will return anything.
+     * @param string $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function getAssignableAccounts(string $uuid)
+    {
+        return $this->send("phones/{$uuid}/assignable/accounts");
+    }
+
+
 }
