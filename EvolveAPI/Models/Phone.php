@@ -131,7 +131,7 @@ class Phone extends EVCore
      */
     public function getAssignableLineKeys(string $uuid)
     {
-        return $this->send("phones/{$uuid}/assignable/keys");
+        return $this->send("phones/{$uuid}/assignable/keys")->lines;
     }
 
     /**
@@ -143,7 +143,7 @@ class Phone extends EVCore
      */
     public function getAssignableAccounts(string $uuid)
     {
-        return $this->send("phones/{$uuid}/assignable/accounts");
+        return $this->send("phones/{$uuid}/assignable/accounts")->accounts;
     }
 
 
