@@ -34,9 +34,9 @@ class VoiceMailMessage extends EVCore
         return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages", 'GET')->messages;
     }
 
-    public function find(string $pbx, string $vm, string $id)
+    public function find(string $pbx, string $vm, string $messageNumber)
     {
-        return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages/{$id}")->recording;
+        return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages/{$messageNumber}")->recording;
     }
 
     public function delete(string $pbx, string $vm, string $id)
