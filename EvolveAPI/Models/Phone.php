@@ -55,6 +55,21 @@ class Phone extends EVCore
     }
 
     /**
+     * Assign a phone to a pbx.
+     * WARNING: Changing this will remove any account/line/setting configurations.
+     * @param $uuid
+     * @param $pbx
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function assignToPBX($uuid, $pbx)
+    {
+        return $this->send("phones/{$uuid}/assign", 'POST', [
+            'pbx' => $pbx
+        ]);
+    }
+
+    /**
      * Update Line Key associations for a phone
      * @param $uuid
      * @param array $lines
