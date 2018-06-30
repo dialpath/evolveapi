@@ -1,5 +1,7 @@
 <?php
+
 namespace EvolveAPI\Models;
+
 use EvolveAPI\EVCore;
 
 /**
@@ -161,6 +163,34 @@ class Extension extends EVCore
     public function reset(string $pbx, $uuid)
     {
         return $this->send("pbx/{$pbx}/extensions/{$uuid}/reset", 'POST')->secret;
+    }
+
+    /**
+     * Assign an extension to a phone
+     * @param string $pbx
+     * @param string $uuid
+     * @param string $phone_uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function assignPhone(string $pbx, string $uuid, string $phone_uuid)
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}/phone", 'POST', [
+            'phone' => $phone_uuid
+        ]);
+    }
+
+    /**
+     * Unassign a phone from an extension and make it available
+     * @param string $pbx
+     * @param string $uuid
+     * @param string $phone_uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function unassignPhone(string $pbx, string $uuid, string $phone_uuid)
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}/phone/$phone_uuid", 'DELETE');
     }
 
 }
