@@ -36,16 +36,16 @@ class VoiceMailMessage extends EVCore
     }
 
     /**
-     * Retrieve a single message
      * @param string $pbx
      * @param string $vm
-     * @param string $id
+     * @param string $messageNumber
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function find(string $pbx, string $vm, string $id)
+    public function find(string $pbx, string $vm, string $messageNumber)
+
     {
-        return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages/{$id}")->recording;
+        return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages/{$messageNumber}")->recording;
     }
 
     /**
