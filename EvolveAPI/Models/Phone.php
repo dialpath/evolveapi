@@ -78,7 +78,7 @@ class Phone extends EVCore
      */
     public function updateLineKeys($uuid, array $lines)
     {
-        return $this->send("phones/{$uuid}/lines", 'POST', $lines);
+        return $this->send("phones/{$uuid}/lines", 'POST', ['lines' => $lines]);
     }
 
     /**
@@ -90,7 +90,7 @@ class Phone extends EVCore
      */
     public function updateAccounts($uuid, array $accounts)
     {
-        return $this->send("phones/{$uuid}/accounts", 'POST', $accounts);
+        return $this->send("phones/{$uuid}/accounts", 'POST', ['accounts' => $accounts]);
     }
 
     /**
