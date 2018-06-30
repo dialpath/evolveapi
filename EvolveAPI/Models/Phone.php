@@ -55,6 +55,30 @@ class Phone extends EVCore
     }
 
     /**
+     * Update Line Key associations for a phone
+     * @param $uuid
+     * @param array $lines
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function updateLineKeys($uuid, array $lines)
+    {
+        return $this->send("phones/{$uuid}/lines", 'POST', $lines);
+    }
+
+    /**
+     * Update Extension/Account settings for a phone.
+     * @param $uuid
+     * @param array $accounts
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function updateAccounts($uuid, array $accounts)
+    {
+        return $this->send("phones/{$uuid}/accounts", 'POST', $accounts);
+    }
+
+    /**
      * Add a new phone to the DialPath provisioning server. This is automatically done
      * for customers purchasing devices through DialPath directly.
      * @param string $mac
