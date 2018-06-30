@@ -24,6 +24,7 @@ class VoiceMailMessage extends EVCore
     }
 
     /**
+     * Get a list of all voicemail messages in a mailbox
      * @param string $pbx
      * @param string $vm
      * @return mixed
@@ -34,11 +35,27 @@ class VoiceMailMessage extends EVCore
         return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages", 'GET')->messages;
     }
 
+    /**
+     * Retrieve a single message
+     * @param string $pbx
+     * @param string $vm
+     * @param string $id
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
     public function find(string $pbx, string $vm, string $id)
     {
         return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages/{$id}")->recording;
     }
 
+    /**
+     * Remove a message from a mailbox.
+     * @param string $pbx
+     * @param string $vm
+     * @param string $id
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
     public function delete(string $pbx, string $vm, string $id)
     {
         return $this->send("pbx/{$pbx}/voicemails/{$vm}/messages/{$id}", 'DELETE');
