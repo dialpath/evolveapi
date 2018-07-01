@@ -55,6 +55,45 @@ class Phone extends EVCore
     }
 
     /**
+     * Assign a phone to a pbx.
+     * WARNING: Changing this will remove any account/line/setting configurations.
+     * @param $uuid
+     * @param $pbx
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function assignToPBX($uuid, $pbx)
+    {
+        return $this->send("phones/{$uuid}/assign", 'POST', [
+            'pbx' => $pbx
+        ]);
+    }
+
+    /**
+     * Update Line Key associations for a phone
+     * @param $uuid
+     * @param array $lines
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function updateLineKeys($uuid, array $lines)
+    {
+        return $this->send("phones/{$uuid}/lines", 'POST', ['lines' => $lines]);
+    }
+
+    /**
+     * Update Extension/Account settings for a phone.
+     * @param $uuid
+     * @param array $accounts
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function updateAccounts($uuid, array $accounts)
+    {
+        return $this->send("phones/{$uuid}/accounts", 'POST', ['accounts' => $accounts]);
+    }
+
+    /**
      * Add a new phone to the DialPath provisioning server. This is automatically done
      * for customers purchasing devices through DialPath directly.
      * @param string $mac
@@ -82,5 +121,30 @@ class Phone extends EVCore
     {
         return $this->send("phones/{$mac}", 'DELETE');
     }
+
+    /**
+     * Get assignable line keys for this phone.
+     * NOTE: Phone must be associated to a PBX before this call will return anything.
+     * @param string $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function getAssignableLineKeys(string $uuid)
+    {
+        return $this->send("phones/{$uuid}/assignable/keys")->lines;
+    }
+
+    /**
+     * Get assignable extensions/accounts for this phone.
+     * NOTE: Phone must be associated to a PBX before this call will return anything.
+     * @param string $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function getAssignableAccounts(string $uuid)
+    {
+        return $this->send("phones/{$uuid}/assignable/accounts")->accounts;
+    }
+
 
 }
