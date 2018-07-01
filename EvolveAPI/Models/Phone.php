@@ -51,7 +51,7 @@ class Phone extends EVCore
      */
     public function updatePhoneSettings($uuid, array $settings)
     {
-        return $this->send("phones/{$uuid}/settings", 'POST', $settings);
+        return $this->send("phones/{$uuid}/settings", 'POST', ['settings' => $settings]);
     }
 
     /**
