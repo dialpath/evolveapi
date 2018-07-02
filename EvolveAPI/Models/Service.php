@@ -29,4 +29,8 @@ class Service extends EVCore
     {
         return $this->send("services")->services;
     }
+
+    public function getPrices(){
+        return $this->send("services/prices")->price_list;
+    }
 }
