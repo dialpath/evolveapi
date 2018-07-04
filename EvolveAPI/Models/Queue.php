@@ -79,4 +79,25 @@ class Queue extends EVCore
         return $this->send("pbx/{$pbx}/queues/{$uuid}", 'DELETE');
     }
 
+    /**
+     * @param string $pbx
+     * @param string $queue
+     * @param array $params
+     * @return mixedr
+     * @throws \EvolveAPI\EVException
+     */
+    public function updateAgents(string $pbx, string $queue, $params = []){
+        return $this->send("pbx/{$pbx}/queues/{$queue}/agents", 'POST', $params);
+    }
+
+    /**
+     * @param string $pbx
+     * @param string $queue
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function getAgents(string $pbx, string $queue){
+        return $this->send("pbx/{$pbx}/queues/{$queue}/agents");
+    }
+
 }
