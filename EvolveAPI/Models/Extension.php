@@ -135,7 +135,7 @@ class Extension extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function setFollowMe(string $pbx, $uuid, array $params = [])
+    public function setFollowMe(string $pbx, $uuid, array $params)
     {
         return $this->send("pbx/{$pbx}/extensions/{$uuid}/follow", 'POST', $params);
     }
