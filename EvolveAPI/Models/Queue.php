@@ -97,7 +97,7 @@ class Queue extends EVCore
      * @throws \EvolveAPI\EVException
      */
     public function getAgents(string $pbx, string $queue){
-        return $this->send("pbx/{$pbx}/queues/{$queue}/agents");
+        return $this->send("pbx/{$pbx}/queues/{$queue}/agents")->agents;
     }
 
 }
