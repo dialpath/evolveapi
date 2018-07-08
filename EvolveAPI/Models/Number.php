@@ -147,16 +147,14 @@ class Number extends EVCore
     /**
      * Purchase a number found from the available list.
      * @param string $pbx
-     * @param string $number
-     * @param string $type One of LOCAL, TOLLFREE or VFAX
+     * @param string $numberKey This is a key returned from available lists. (ex. lc_1_4044001766)
      * @return mixed - Returns an object with the UUID
      * @throws \EvolveAPI\EVException
      */
-    public function purchaseNumber(string $pbx, string $number, $type = 'LOCAL')
+    public function purchaseNumber(string $pbx, string $numberKey)
     {
         return $this->send("pbx/{$pbx}/numbers/purchase", 'POST', [
-            'type'   => $type,
-            'number' => $number
+            'number' => $numberKey
         ])->number;
     }
 
