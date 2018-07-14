@@ -41,7 +41,7 @@ class License extends EVCore
 
     /**
      * Set the licenses for a PBX. This will directly affect billing
-     * of your PBX. If you remove licenses your recurring invoice will
+     * of your PBX. If you remove licenses your recurring\ invoice will
      * go down. If you add, you will be charged applicable provisioning fees
      * as well as your recurring invoice updated to reflect the changes.
      * @param string $pbx
