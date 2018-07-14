@@ -1,5 +1,7 @@
 <?php
+
 namespace EvolveAPI\Models;
+
 use EvolveAPI\EVCore;
 
 /**
@@ -30,13 +32,25 @@ class CDR extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function getCDRByPBXRange(string $pbx, string $start, string $end, $stats = true, $direction = 'INBOUND')
+    public function all(string $pbx, string $start, string $end, $stats = true, $direction = 'INBOUND')
     {
-        return $this->send("pbx/{$pbx}/cdr", 'POST', [
+        return $this->send("pbx/{$pbx}/cdr", 'GET', [
             'start'     => $start,
             'end'       => $end,
             'direction' => $direction,
             'stats'     => $stats
-        ])->cdr;
+        ])->cdrs;
+    }
+
+    /**
+     * Get an individual call
+     * @param string $pbx
+     * @param string $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function find(string $pbx, string $uuid)
+    {
+        return $this->send("pbx/{$pbx}/cdr/{$uuid}")->cdr;
     }
 }
