@@ -100,8 +100,4 @@ class Queue extends EVCore
         return $this->send("pbx/{$pbx}/queues/{$queue}/agents")->agents;
     }
 
-    public function getQueueNatvie(string $pbx, string $queue){
-        return $this->send("pbx/{$pbx}/queues/{$queue}/native")->native;
-    }
-
 }
