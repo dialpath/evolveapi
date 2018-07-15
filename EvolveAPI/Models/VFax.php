@@ -51,7 +51,7 @@ class VFax extends EVCore
      */
     public function getFax(string $pbx, string $number, string $uuid)
     {
-        return $this->send("pbx/{$pbx}/vfaxes/{$uuid}/fax/{$uuid}")->fax;
+        return $this->send("pbx/{$pbx}/vfaxes/{$number}/fax/{$uuid}")->fax;
     }
 
     /**
