@@ -1,16 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cdc
- * Date: 27-Jun-18
- * Time: 5:46 PM
- */
 
 namespace EvolveAPI\Models;
 
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class VoiceMailMessage
+ * @package EvolveAPI\Models
+ */
 class VoiceMailMessage extends EVCore
 {
     /**

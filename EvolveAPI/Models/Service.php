@@ -1,19 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cdc
- * Date: 25-Jun-18
- * Time: 4:55 PM
- */
 
 namespace EvolveAPI\Models;
 
 use EvolveAPI\EVCore;
 
+/**
+ * Class Service
+ * @package EvolveAPI\Models
+ */
 class Service extends EVCore
 {
     /**
-     * Order constructor.
+     * Service constructor.
      */
     public function __construct()
     {
@@ -30,7 +28,13 @@ class Service extends EVCore
         return $this->send("services")->services;
     }
 
-    public function getPrices(){
+    /**
+     * Get a price deck for your account
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function getPrices()
+    {
         return $this->send("services/prices")->price_list;
     }
 }

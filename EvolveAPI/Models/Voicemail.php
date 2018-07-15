@@ -1,9 +1,11 @@
 <?php
-
 namespace EvolveAPI\Models;
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Voicemail
+ * @package EvolveAPI\Models
+ */
 class Voicemail extends EVCore
 {
     /**
