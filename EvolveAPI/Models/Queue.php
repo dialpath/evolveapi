@@ -1,9 +1,11 @@
 <?php
-
 namespace EvolveAPI\Models;
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class Queue
+ * @package EvolveAPI\Models
+ */
 class Queue extends EVCore
 {
     /**

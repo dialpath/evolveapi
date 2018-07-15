@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: chris
- * Date: 7/1/18
- * Time: 7:43 PM
- */
-
 namespace EvolveAPI\Models;
-
-
 use EvolveAPI\EVCore;
 
+/**
+ * Class E911
+ * @package EvolveAPI\Models
+ */
 class E911 extends EVCore
 {
     /**

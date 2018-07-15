@@ -1,14 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: chris
- * Date: 7/8/18
- * Time: 8:44 AM
- */
-
 namespace EvolveAPI\Models;
-
-
 use EvolveAPI\EVCore;
 
 /**
