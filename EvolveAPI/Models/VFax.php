@@ -67,7 +67,7 @@ class VFax extends EVCore
      */
     public function sendFax(string $pbx, string $number, array $fax)
     {
-        return $this->send("pbx/{$pbx}/vfaxes/{$number}/fax/{$number}", 'POST', $fax);
+        return $this->send("pbx/{$pbx}/vfaxes/{$number}", 'POST', $fax);
     }
 
 
