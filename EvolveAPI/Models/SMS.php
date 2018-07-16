@@ -42,6 +42,19 @@ class SMS extends EVCore
     }
 
     /**
+     * Deletes a sms given it's uuid
+     *
+     * @param string $pbx
+     * @param string $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function delete(string $pbx, string $uuid)
+    {
+        return $this->send("pbx/{$pbx}/sms/{$uuid}", 'DELETE');
+    }
+
+    /**
      * Send a SMS.
      * @param string $pbx
      * @param string $number The source UUID
