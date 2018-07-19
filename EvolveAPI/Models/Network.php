@@ -68,9 +68,9 @@ class Network extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function events(string $pbx, string $uuid)
+    public function events(string $pbx, string $uuid, $start = null, $end = null)
     {
-        return $this->send("pbx/{$pbx}/networks/{$uuid}/events")->events;
+        return $this->send("pbx/{$pbx}/networks/{$uuid}/events?start=$start&end=$end")->events;
     }
 
     /**
