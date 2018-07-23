@@ -31,6 +31,6 @@ class PhoneBook extends EVCore
      */
     public function all($pbx)
     {
-        return $this->send("phonebooks", 'GET', ['pbx' => $pbx])->phoneBooks;
+        return $this->send("pbx/{$pbx}/phonebooks", 'GET', ['pbx' => $pbx])->phoneBooks;
     }
 }
