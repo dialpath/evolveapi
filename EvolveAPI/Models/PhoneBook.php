@@ -14,6 +14,16 @@ use EvolveAPI\EVCore;
 class PhoneBook extends EVCore
 {
     /**
+     * PhoneBooks constructor.
+     * @param string $environment
+     */
+    public function __construct(string $environment)
+    {
+        parent::__construct();
+        $this->environment = $environment;
+    }
+
+    /**
      * Get a list of all available phoneBooks
      * @param $pbx
      * @return mixed
