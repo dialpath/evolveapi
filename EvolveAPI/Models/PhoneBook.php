@@ -55,7 +55,7 @@ class PhoneBook extends EVCore
      */
     public function find($pbx, $uuid)
     {
-        return $this->send("pbx/{$pbx}/phonebooks/{$uuid}")->number;
+        return $this->send("pbx/{$pbx}/phonebooks/{$uuid}")->phoneBook;
     }
 
 
