@@ -43,6 +43,6 @@ class EmailTemplate extends EVCore
      */
     public function updateTemplate(string $pbx, string $type, array $params = [])
     {
-        return $this->send("pbx/{$pbx}/templates/{$type}", 'PUT', $params)->uuid;
+        return $this->send("pbx/{$pbx}/templates/{$type}", 'PUT', $params)->template;
     }
 }
