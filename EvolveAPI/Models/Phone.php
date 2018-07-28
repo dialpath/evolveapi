@@ -80,6 +80,19 @@ class Phone extends EVCore
     }
 
     /**
+     * Set Line keys for an expansion module (aka Sidecar)
+     * @param $uuid
+     * @param $index
+     * @param array $lines
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function updateExpansionLineKeys($uuid, $index, array $lines)
+    {
+        return $this->send("phones/{$uuid}/expansions/{$index}/lines", 'POST', ['lines' => $lines]);
+    }
+
+    /**
      * Update Extension/Account settings for a phone.
      * @param $uuid
      * @param array $accounts
