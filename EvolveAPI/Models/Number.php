@@ -1,6 +1,7 @@
 <?php
 
 namespace EvolveAPI\Models;
+
 use EvolveAPI\EVCore;
 
 /**
@@ -88,21 +89,6 @@ class Number extends EVCore
         return $this->send("pbx/{$pbx}/numbers/$uuid", 'DELETE');
     }
 
-
-    /**
-     * Assign a number to a registered e911 location.
-     * @param $pbx
-     * @param $uuid
-     * @param $locationUuid
-     * @return mixed
-     * @throws \EvolveAPI\EVException
-     */
-    public function assignLocation($pbx, $uuid, $locationUuid)
-    {
-        return $this->send("pbx/{$pbx}/numbers/$uuid/e911", 'POST', [
-            'location' => $locationUuid
-        ]);
-    }
 
     /**
      * Find all available local numbers by two letter state code.
