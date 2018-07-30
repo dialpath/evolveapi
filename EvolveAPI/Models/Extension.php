@@ -206,14 +206,4 @@ class Extension extends EVCore
         return $this->send("pbx/{$pbx}/extensions/{$uuid}/phone/$phone_uuid", 'DELETE');
     }
 
-    /**
-     * @param string $pbx
-     * @param array $params
-     * @return mixed
-     * @throws \EvolveAPI\EVException
-     */
-    public function validateExtensionRange(string $pbx, array $params){
-        return $this->send("pbx/{$pbx}/extensions/bulk", 'POST', $params)->valid;
-    }
-
 }
