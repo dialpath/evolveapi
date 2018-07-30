@@ -104,7 +104,7 @@ class PBX extends EVCore
      */
     public function disable($pbx)
     {
-        return $this->send("pbx/{$pbx}/disable");
+        return $this->send("pbx/{$pbx}/disable")->disabled;
     }
 
     /**
@@ -114,7 +114,7 @@ class PBX extends EVCore
      */
     public function enable($pbx)
     {
-        return $this->send("pbx/{$pbx}/enable");
+        return $this->send("pbx/{$pbx}/enable")->disabled;
     }
 
 }
