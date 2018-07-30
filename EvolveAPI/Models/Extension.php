@@ -61,7 +61,7 @@ class Extension extends EVCore
      */
     public function createBulk(string $pbx, array $params)
     {
-        return $this->send("pbx/{$pbx}/extensions/bulk", 'POST', $params);
+        return $this->send("pbx/{$pbx}/extensions/bulk", 'POST', $params)->extensions;
     }
 
     /**
