@@ -50,6 +50,21 @@ class Extension extends EVCore
     }
 
     /**
+     * @param string $pbx
+     * @param array $params
+     * start_extension : integer : extension number to start from
+     * end_extension : integer : The 3-4 digit extension to end at
+     * caller_id : bigInt : the 10 digit Caller ID (must exist on your account)
+     * emergency_id : bigInt : the 10 digit E911 Caller ID (must exist on your account)
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function createBulk(string $pbx, array $params)
+    {
+        return $this->send("pbx/{$pbx}/extensions/bulk", 'POST', $params);
+    }
+
+    /**
      * Update an Extension
      * @param string $pbx
      * @param $uuid
