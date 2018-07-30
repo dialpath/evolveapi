@@ -97,6 +97,24 @@ class PBX extends EVCore
         return $this->send("pbx/{$pbx}/paths")->paths;
     }
 
+    /**
+     * @param $pbx
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function disable($pbx)
+    {
+        return $this->send("pbx/{$pbx}/disable");
+    }
 
+    /**
+     * @param $pbx
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function enable($pbx)
+    {
+        return $this->send("pbx/{$pbx}/enable");
+    }
 
 }
