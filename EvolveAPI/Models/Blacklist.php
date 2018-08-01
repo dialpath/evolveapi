@@ -56,7 +56,7 @@ class Blacklist extends EVCore
      */
     public function create(string $pbx, array $params)
     {
-        return $this->send("pbx/{$pbx}/blacklist", 'POST', $params);
+        return $this->send("pbx/{$pbx}/blacklist", 'POST', $params)->uuid;
     }
 
     /**
@@ -70,7 +70,7 @@ class Blacklist extends EVCore
      */
     public function update(string $pbx, string $uuid, array $params)
     {
-        return $this->send("pbx/{$pbx}/blacklist/{$uuid}", 'PUT', $params);
+        return $this->send("pbx/{$pbx}/blacklist/{$uuid}", 'PUT', $params)->uuid;
     }
 
     /**
