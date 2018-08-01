@@ -43,7 +43,7 @@ class Blacklist extends EVCore
      */
     public function find(string $pbx, string $uuid)
     {
-        return $this->send("pbx/{$pbx}/actions/{$uuid}")->entry;
+        return $this->send("pbx/{$pbx}/blacklist/{$uuid}")->entry;
     }
 
     /**
