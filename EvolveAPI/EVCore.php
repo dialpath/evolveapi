@@ -28,7 +28,7 @@ class EVCore
      * The Evolve base endpoint. This hopefully won't ever change.
      * @var string
      */
-    private $baseEndpoint = "http://dialpath.test/api/v1/";
+    private $baseEndpoint = "https://www.dialpath.com/api/v1/";
     /**
      * Our Guzzle Client
      * @var
