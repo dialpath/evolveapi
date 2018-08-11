@@ -34,6 +34,21 @@ class Port extends EVCore
     }
 
     /**
+     * Get a list of all orders
+     * @param string $pbx Optionally set which PBX you are searching.
+     * @param bool $completed Include Completed orders?
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function all(string $pbx = null, $completed = false)
+    {
+        if ($pbx == null) $this->environment = null; // Ignore env. Get all.
+        return $this->send($pbx ? "pbx/{$pbx}/port_orders" : "port_orders", 'get', [
+            'completed' => $completed
+        ]);
+    }
+
+    /**
      * Create a new Port Order
      * @param string $pbx The PBX/Customer this port order is for.
      * @param array $subscriberData The subscriber data listed below

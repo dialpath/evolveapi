@@ -55,7 +55,7 @@ class EVCore
      * @return mixed
      * @throws EVException
      */
-    public function send($endpoint, $method = "GET", $params = [])
+    public function send($endpoint, $method = "get", $params = [])
     {
         $method = strtolower($method);
         if ($this->environment) $this->baseEndpoint .= "environments/{$this->environment}/";
@@ -65,7 +65,7 @@ class EVCore
             'X-Auth-Token' => static::$apiKey
         ];
         // Add our form data if we have any to send.
-        if ($method != 'GET' && !empty($params))
+        if ($method != 'get' && !empty($params))
         {
             $data['json'] = $params;
         }
