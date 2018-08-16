@@ -65,10 +65,16 @@ class EVCore
             'X-Auth-Token' => static::$apiKey
         ];
         // Add our form data if we have any to send.
-        if ($method != 'get' && !empty($params))
+        switch ($method)
         {
-            $data['json'] = $params;
+            case 'get' :
+                $data['query'] = $params;
+                break;
+            default:
+                $data['json'] = $params;
+                break;
         }
+
         try
         {
             $result = $this->client->{$method}($this->baseEndpoint . $endpoint, $data);
