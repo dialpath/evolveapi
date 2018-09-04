@@ -45,7 +45,7 @@ class DirectoryEntry extends EVCore
      */
     public function find(string $pbx, string $directory, string $uuid)
     {
-        return $this->send("pbx/{$pbx}/directories/{$directory}/entries/{$uuid}")->directory;
+        return $this->send("pbx/{$pbx}/directories/{$directory}/entries/{$uuid}")->entry;
     }
 
     /**
