@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: cdc
- * Date: 01-Aug-18
- * Time: 7:23 PM
+ * Date: 04-Sep-18
+ * Time: 1:21 PM
  */
 
 namespace EvolveAPI\Models;
@@ -11,10 +11,10 @@ namespace EvolveAPI\Models;
 
 use EvolveAPI\EVCore;
 
-class Blacklist extends EVCore
+class Directory extends EVCore
 {
     /**
-     * Blacklist Constructor
+     *  Directory
      * @param string $environment
      */
     public function __construct(string $environment)
@@ -24,18 +24,18 @@ class Blacklist extends EVCore
     }
 
     /**
-     * Get a list of PBX Blacklist Entries
+     * Get a list of  Directories
      * @param string $pbx
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
     public function all(string $pbx)
     {
-        return $this->send("pbx/{$pbx}/blacklist")->entries;
+        return $this->send("pbx/{$pbx}/directories")->directories;
     }
 
     /**
-     * Get a Blacklist Entry
+     * Get a  Directory
      * @param string $pbx
      * @param string $uuid
      * @return mixed
@@ -43,38 +43,36 @@ class Blacklist extends EVCore
      */
     public function find(string $pbx, string $uuid)
     {
-        return $this->send("pbx/{$pbx}/blacklist/{$uuid}")->entry;
+        return $this->send("pbx/{$pbx}/directories/{$uuid}")->directory;
     }
 
     /**
-     * Creates a Blacklist entry
-     *
+     * Create a new  Directory
      * @param string $pbx
-     * @param array $params
+     * @param array $settings
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function create(string $pbx, array $params)
+    public function create(string $pbx, array $settings)
     {
-        return $this->send("pbx/{$pbx}/blacklist", 'POST', $params)->uuid;
+        return $this->send("pbx/{$pbx}/directories", 'POST', $settings);
     }
 
     /**
-     * Update a Blacklist entry
-     *
+     * Update a Directory - Same parameters as create
      * @param string $pbx
      * @param string $uuid
-     * @param array $params
+     * @param array $settings
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function update(string $pbx, string $uuid, array $params)
+    public function update(string $pbx, string $uuid, array $settings)
     {
-        return $this->send("pbx/{$pbx}/blacklist/{$uuid}", 'PUT', $params)->uuid;
+        return $this->send("pbx/{$pbx}/directories/{$uuid}", 'PUT', $settings);
     }
 
     /**
-     * Remove a Blacklist Entry
+     * Remove a  Directory
      * @param string $pbx
      * @param string $uuid
      * @return mixed
@@ -82,6 +80,6 @@ class Blacklist extends EVCore
      */
     public function delete(string $pbx, string $uuid)
     {
-        return $this->send("pbx/{$pbx}/blacklist/{$uuid}", 'DELETE');
+        return $this->send("pbx/{$pbx}/directories/{$uuid}", 'DELETE');
     }
 }
