@@ -33,6 +33,18 @@ class Phone extends EVCore
     }
 
     /**
+     * updates a phone's description
+     * @param $uuid
+     * @param array $params
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function update($uuid, array $params)
+    {
+        return $this->send("phones/$uuid", 'PUT', $params)->uuid;
+    }
+
+    /**
      * Get a list of supported brands/models
      */
     public function getSupportedPhones()
