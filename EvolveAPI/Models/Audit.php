@@ -38,7 +38,7 @@ class Audit extends EVCore
      */
     public function bySubtype(string $pbx, string $subtype)
     {
-        return $this->send("pbx/{$pbx}/audits?subtype=$subtype")->entries;
+        return $this->send("pbx/{$pbx}/audits/$subtype")->entries;
 
     }
 
@@ -51,7 +51,7 @@ class Audit extends EVCore
      */
     public function byObject(string $pbx, string $uuid)
     {
-        return $this->send("pbx/{$pbx}/audits?subtype_uuid=$uuid")->entries;
+        return $this->send("pbx/{$pbx}/audits/$uuid")->entries;
     }
 
 
