@@ -117,4 +117,15 @@ class PBX extends EVCore
         return $this->send("pbx/{$pbx}/enable")->disabled;
     }
 
+    /**
+     * Permanently Destroy a PBX.
+     * @param $pbx
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function destroy($pbx)
+    {
+        return $this->send("pbx/{$pbx}", 'DELETE');
+    }
+
 }
