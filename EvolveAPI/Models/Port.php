@@ -102,7 +102,7 @@ class Port extends EVCore
      */
     public function find(string $pbx, string $uuid)
     {
-        return $this->send("/pbx/{$pbx}/port_orders/{$uuid}")->order;
+        return $this->send("pbx/{$pbx}/port_orders/{$uuid}")->order;
     }
 
     /**
