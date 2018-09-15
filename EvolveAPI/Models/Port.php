@@ -45,7 +45,7 @@ class Port extends EVCore
         if ($pbx == null) $this->environment = null; // Ignore env. Get all.
         return $this->send($pbx ? "pbx/{$pbx}/port_orders" : "port_orders", 'get', [
             'completed' => $completed
-        ])->ports;
+        ])->orders;
     }
 
     /**
