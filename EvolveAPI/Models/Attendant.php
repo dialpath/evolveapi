@@ -105,11 +105,11 @@ class Attendant extends EVCore
     /**
      * @param string $pbx
      * @param string $uuid
-     * @param $params
+     * @param array $params
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function logs(string $pbx, string $uuid, $params)
+    public function logs(string $pbx, string $uuid, $params = [])
     {
         return $this->send("pbx/{$pbx}/attendants/{$uuid}/logs", 'GET', $params)->logs;
     }
