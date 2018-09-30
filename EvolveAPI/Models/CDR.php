@@ -1,5 +1,7 @@
 <?php
+
 namespace EvolveAPI\Models;
+
 use EvolveAPI\EVCore;
 
 /**
