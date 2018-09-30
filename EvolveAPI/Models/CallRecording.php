@@ -31,7 +31,7 @@ class CallRecording extends EVCore
      */
     public function all(string $pbx, string $start, string $end)
     {
-        return $this->send("pbx/{$pbx}/recordings", [
+        return $this->send("pbx/{$pbx}/recordings", 'GET', [
             'start' => $start,
             'end'   => $end
         ])->recordings;
