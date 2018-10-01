@@ -1,5 +1,7 @@
 <?php
+
 namespace EvolveAPI\Models;
+
 use EvolveAPI\EVCore;
 
 /**
@@ -88,7 +90,8 @@ class Queue extends EVCore
      * @return mixedr
      * @throws \EvolveAPI\EVException
      */
-    public function updateAgents(string $pbx, string $queue, $params = []){
+    public function updateAgents(string $pbx, string $queue, $params = [])
+    {
         return $this->send("pbx/{$pbx}/queues/{$queue}/agents", 'POST', $params);
     }
 
@@ -98,8 +101,22 @@ class Queue extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function getAgents(string $pbx, string $queue){
+    public function getAgents(string $pbx, string $queue)
+    {
         return $this->send("pbx/{$pbx}/queues/{$queue}/agents")->agents;
+    }
+
+    /**
+     * gets the logs for this queue
+     * @param string $pbx
+     * @param string $uuid
+     * @param array $params [start = null, end = null]
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function logs(string $pbx, string $uuid, $params = [])
+    {
+        return $this->send("pbx/{$pbx}/queues/{$uuid}/logs", 'GET', $params)->logs;
     }
 
 }

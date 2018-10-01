@@ -1,5 +1,7 @@
 <?php
+
 namespace EvolveAPI\Models;
+
 use EvolveAPI\EVCore;
 
 /**
@@ -103,6 +105,7 @@ class Attendant extends EVCore
     }
 
     /**
+     * gets the logs for this attendant (IVR)
      * @param string $pbx
      * @param string $uuid
      * @param array $params
