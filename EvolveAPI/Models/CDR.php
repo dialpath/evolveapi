@@ -53,4 +53,17 @@ class CDR extends EVCore
     {
         return $this->send("pbx/{$pbx}/cdr/{$uuid}")->cdr;
     }
+
+    /**
+     * get the events of the given cdr uuid
+     * @param string $pbx
+     * @param string $uuid
+     * @param array $params = [start = null, end = null]
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function events(string $pbx, string $uuid, $params = [])
+    {
+        return $this->send("pbx/{$pbx}/cdrs/{$uuid}/events", 'GET', $params)->events;
+    }
 }
