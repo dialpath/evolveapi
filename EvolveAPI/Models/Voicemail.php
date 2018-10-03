@@ -1,5 +1,7 @@
 <?php
+
 namespace EvolveAPI\Models;
+
 use EvolveAPI\EVCore;
 
 /**
@@ -37,12 +39,13 @@ class Voicemail extends EVCore
      * Get a Voicemail
      * @param string $pbx
      * @param string $uuid
+     * @param bool $includeGreeting : specify whether or not to include the greeting message with the result
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function find(string $pbx, string $uuid)
+    public function find(string $pbx, string $uuid, $includeGreeting = false)
     {
-        return $this->send("pbx/{$pbx}/voicemails/{$uuid}")->voicemail;
+        return $this->send("pbx/{$pbx}/voicemails/{$uuid}", 'GET', ['withGreeting' => $includeGreeting])->voicemail;
     }
 
     /**

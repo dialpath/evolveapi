@@ -36,12 +36,13 @@ class Sound extends EVCore
      * Get a Sound File
      * @param string $pbx
      * @param string $uuid
+     * @param bool $includeData : specify whether or not to include the audio data to the result
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function find(string $pbx, string $uuid)
+    public function find(string $pbx, string $uuid, $includeData = false)
     {
-        return $this->send("pbx/{$pbx}/sounds/{$uuid}")->sound;
+        return $this->send("pbx/{$pbx}/sounds/{$uuid}", 'GET', ['withData' => $includeData])->sound;
     }
 
     /**
