@@ -40,7 +40,7 @@ class CDR extends EVCore
         string $end,
         $stats = true,
         $direction = 'INBOUND',
-        array $extensions = []
+        $extensions = []
     ) {
         return $this->send("pbx/{$pbx}/cdr", 'GET', [
             'start'      => $start,
