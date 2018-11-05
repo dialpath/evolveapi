@@ -29,16 +29,25 @@ class CDR extends EVCore
      * @param string $end The end date/time
      * @param bool $stats If true, an aggregated array will be returned. False will return a list of records
      * @param string $direction INBOUND, OUTBOUND, ALL
+     * @param array $extensions if this parameter is inserted, cdrs will be filtered by the included extensions
+     * leave null for all extensions
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function all(string $pbx, string $start, string $end, $stats = true, $direction = 'INBOUND')
-    {
+    public function all(
+        string $pbx,
+        string $start,
+        string $end,
+        $stats = true,
+        $direction = 'INBOUND',
+        array $extensions = []
+    ) {
         return $this->send("pbx/{$pbx}/cdr", 'GET', [
-            'start'     => $start,
-            'end'       => $end,
-            'direction' => $direction,
-            'stats'     => $stats
+            'start'      => $start,
+            'end'        => $end,
+            'direction'  => $direction,
+            'stats'      => $stats,
+            'extensions' => $extensions
         ])->cdrs;
     }
 
