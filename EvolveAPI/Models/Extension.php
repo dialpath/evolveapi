@@ -206,4 +206,16 @@ class Extension extends EVCore
         return $this->send("pbx/{$pbx}/extensions/{$uuid}/phone/$phone_uuid", 'DELETE');
     }
 
+    /**
+     * Enabled/Disables the unconditional forwarding
+     * @param string $pbx
+     * @param string $uuid
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function toggleUnconditionalForwarding(string $pbx, string $uuid)
+    {
+        return $this->send("pbx/{$pbx}/extensions/{$uuid}/unconditional_toggle", 'POST');
+    }
+
 }
