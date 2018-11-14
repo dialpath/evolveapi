@@ -31,6 +31,7 @@ class CDR extends EVCore
      * @param string $direction INBOUND, OUTBOUND, ALL
      * @param array $extensions if this parameter is inserted, cdrs will be filtered by the included extensions
      * leave null for all extensions
+     * @param string $disposition
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
@@ -40,14 +41,16 @@ class CDR extends EVCore
         string $end,
         $stats = true,
         $direction = 'INBOUND',
-        $extensions = []
+        $extensions = [],
+        $disposition = 'ANSWER'
     ) {
         return $this->send("pbx/{$pbx}/cdr", 'GET', [
-            'start'      => $start,
-            'end'        => $end,
-            'direction'  => $direction,
-            'stats'      => $stats,
-            'extensions' => $extensions
+            'start'       => $start,
+            'end'         => $end,
+            'direction'   => $direction,
+            'stats'       => $stats,
+            'extensions'  => $extensions,
+            'disposition' => $disposition
         ])->cdrs;
     }
 
