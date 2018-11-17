@@ -116,7 +116,7 @@ class Queue extends EVCore
      */
     public function logs(string $pbx, string $uuid, $params = [])
     {
-        return $this->send("pbx/{$pbx}/queues/{$uuid}/logs", 'GET', $params)->logs;
+        return $this->send("pbx/{$pbx}/queues/{$uuid}/logs", 'GET', $params);
     }
 
 }
