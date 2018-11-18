@@ -114,9 +114,22 @@ class Queue extends EVCore
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
-    public function logs(string $pbx, string $uuid, $params = [])
+    public function logs(string $pbx, string $uuid, array $params = [])
     {
         return $this->send("pbx/{$pbx}/queues/{$uuid}/logs", 'GET', $params);
+    }
+
+    /**
+     * Generate a PDF report of call queue stats.
+     * @param string $pbx
+     * @param string $uuid
+     * @param array $params
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function generateReport(string $pbx, string $uuid, array $params = [])
+    {
+        return $this->send("pbx/{$pbx}/queues/{$uuid}/report", 'GET', $params)->report;
     }
 
 }
