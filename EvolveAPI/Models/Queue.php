@@ -123,7 +123,7 @@ class Queue extends EVCore
      * Generate a PDF report of call queue stats.
      * @param string $pbx
      * @param string $uuid
-     * @param array $params
+     * @param array $params [start = null, end = null, daily = bool]
      * @return mixed
      * @throws \EvolveAPI\EVException
      */
