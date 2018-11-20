@@ -115,4 +115,15 @@ class Voicemail extends EVCore
             'greeting' => $greeting
         ]);
     }
+
+    /**
+     * @param string $pbx
+     * @param string $voicemail
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function clearMailBox(string $pbx, string $voicemail)
+    {
+        return $this->send("pbx/{$pbx}/voicemails/$voicemail/clear_mailbox", 'DELETE');
+    }
 }
