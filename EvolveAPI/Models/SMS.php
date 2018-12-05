@@ -65,7 +65,7 @@ class SMS extends EVCore
      */
     public function getSMSMessages($pbx)
     {
-        return $this->send("pbx/{$pbx}/sms/messages")->numbers;
+        return $this->send("pbx/{$pbx}/sms_messages")->numbers;
     }
 
     /**
