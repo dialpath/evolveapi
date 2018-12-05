@@ -1,5 +1,7 @@
 <?php
+
 namespace EvolveAPI\Models;
+
 use EvolveAPI\EVCore;
 
 /**
@@ -52,6 +54,18 @@ class SMS extends EVCore
     public function delete(string $pbx, string $uuid)
     {
         return $this->send("pbx/{$pbx}/sms/{$uuid}", 'DELETE');
+    }
+
+    /**
+     * Gets all the sms numbers with the messages
+     *
+     * @param $pbx
+     * @return mixed
+     * @throws \EvolveAPI\EVException
+     */
+    public function getSMSMessages($pbx)
+    {
+        return $this->send("pbx/{$pbx}/sms/messages")->numbers;
     }
 
     /**
